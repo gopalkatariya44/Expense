@@ -13,7 +13,25 @@ class SignUpScreen extends StatelessWidget {
         ),
         body: Container(
           child: Column(
-            children: [],
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      // filled: true,
+                      hintStyle: TextStyle(color: Colors.grey[800]),
+                      hintText: "Mobile Number",
+                      // fillColor: Colors.white70,
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
         ));
   }
