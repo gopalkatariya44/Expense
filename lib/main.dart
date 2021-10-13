@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -32,9 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expenses"),
+        title: const Text("Expenses"),
       ),
-      body: Center(),
+      body: const Center(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'add',
