@@ -41,7 +41,7 @@ class ReceiveOtp extends StatelessWidget {
                           pinTheme: PinTheme(
                             shape: PinCodeFieldShape.box,
                             borderRadius: BorderRadius.circular(4),
-                            fieldHeight: 60,
+                            fieldHeight: 55,
                             fieldWidth: 40,
                             activeFillColor: Colors.white,
                           ),
@@ -79,9 +79,25 @@ class ReceiveOtp extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-                        child: const Text('data'),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 40, vertical: 30),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              const Text(
+                                "Validate OTP",
+                                style: TextStyle(fontSize: 15),
+                              ),
+                              IconButton(
+                                  onPressed: null,
+                                  icon: const Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
