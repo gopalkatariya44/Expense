@@ -11,6 +11,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final _key = GlobalKey<FormState>();
+    final myController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
@@ -33,6 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextFormField(
+                        controller: myController,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Please Enter The Value";
@@ -58,7 +60,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Text('If you are Already Logged in?'),
                           Container(
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                if (_key.currentState!.validate()) {
+                                  print(('Done'));
+                                }
+                              },
                               child: Text('Login'),
                             ),
                           )
