@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({Key? key}) : super(key: key);
@@ -12,7 +13,11 @@ class DetailsScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add),
             tooltip: 'Comment Icon',
-            onPressed: () {},
+            onPressed: () {
+              Get.defaultDialog(
+                
+              );
+            },
           ),
         ],
       ),

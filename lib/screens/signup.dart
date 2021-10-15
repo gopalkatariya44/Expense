@@ -12,126 +12,107 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final _key = GlobalKey<FormState>();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-        backgroundColor: Colors.red,
-        title: const Text('Expenses'),
-        centerTitle: true,
-      ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextFormField(
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Please Enter The Value";
-                          } else if (int.parse(value) > 10 &&
-                              int.parse(value) <= 10) {
-                            return "Plase Enter Below and Above 10";
-                          }
-                        },
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          // filled: true,
-                          hintStyle: TextStyle(color: Colors.grey[800]),
-                          hintText: "Mobile Number",
-                          // fillColor: Colors.white70,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(
+          backgroundColor: Colors.red,
+          title: const Text('Expenses'),
+          centerTitle: true,
+        ),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text('If you are Already Logged in?'),
-                          Container(
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text('Login'),
+                          Form(
+                            key: _key,
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please Enter The Value";
+                                } else if (int.parse(value) > 10 &&
+                                    int.parse(value) <= 10) {
+                                  return "Plase Enter Below and Above 10";
+                                }
+                              },
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                // filled: true,
+                                hintStyle: TextStyle(color: Colors.grey[800]),
+                                hintText: "Mobile Number",
+                                // fillColor: Colors.white70,
+                              ),
                             ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('If you are Already Logged in?'),
+                              Container(
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Text('Login'),
+                                ),
+                              )
+                            ],
                           )
                         ],
-                      )
-                    ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 30),
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      // Container(
-                      //   width: 125,
-                      //   height: 40,
-                      //   child: ElevatedButton(
-                      //     onPressed: () {},
-                      //     child: Text(
-                      //       'Login',
-                      //       style: TextStyle(fontSize: 18),
-                      //     ),
-                      //   ),
-                      // ),
-                      SizedBox(width: 40),
-                      Padding(
-                        padding: EdgeInsets.only(right: 20),
-                        child: Container(
-                          width: 125,
-                          height: 40,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Signup',
-                              style: TextStyle(fontSize: 18),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      width: MediaQuery.of(context).size.width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          // Container(
+                          //   width: 125,
+                          //   height: 40,
+                          //   child: ElevatedButton(
+                          //     onPressed: () {},
+                          //     child: Text(
+                          //       'Login',
+                          //       style: TextStyle(fontSize: 18),
+                          //     ),
+                          //   ),
+                          // ),
+                          SizedBox(width: 40),
+                          Padding(
+                            padding: EdgeInsets.only(right: 20),
+                            child: Container(
+                              width: 125,
+                              height: 40,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Signup',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextField(
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
                     ),
-                    // filled: true,
-                    hintStyle: TextStyle(color: Colors.grey[800]),
-                    hintText: "Mobile Number",
-                    // fillColor: Colors.white70,
                   ),
                 ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+              ]),
+        ));
   }
 }

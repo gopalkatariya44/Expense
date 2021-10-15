@@ -1,5 +1,6 @@
 import 'package:app/screens/details.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,10 +24,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetailsScreen()),
-                );
+                Get.to(DetailsScreen());
               },
             ),
           ],
