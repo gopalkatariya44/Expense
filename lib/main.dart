@@ -1,5 +1,5 @@
-import 'package:app/screens/receiveotp.dart';
-import 'package:app/screens/signup.dart';
+import 'package:app/screens/home.dart';
+import 'package:app/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
       home: const SignUpScreen(),
+
+      home: const HomeScreen(),
+
     );
   }
 }
