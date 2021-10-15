@@ -26,6 +26,18 @@ class ReceiveOtp extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  // filled: true,
+                  hintStyle: TextStyle(color: Colors.grey[800]),
+                  hintText: "Mobile Number",
+                  // fillColor: Colors.white70,
+                ),
+              ),
                       Text(
                         'Enter the Otp to Veryfi your Acount',
                         style: TextStyle(fontSize: 20),
