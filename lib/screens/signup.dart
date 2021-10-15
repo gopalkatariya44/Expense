@@ -15,6 +15,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
+        backgroundColor: Colors.red,
         title: const Text('Expenses'),
         centerTitle: true,
       ),
@@ -115,6 +116,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    // filled: true,
+                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    hintText: "Mobile Number",
+                    // fillColor: Colors.white70,
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
