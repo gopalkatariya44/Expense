@@ -1,4 +1,7 @@
+import 'package:app/screens/home.dart';
+import 'package:app/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -11,108 +14,92 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final _key = GlobalKey<FormState>();
+    final myController = TextEditingController();
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const Text('Expenses'),
-          centerTitle: true,
-        ),
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      backgroundColor: Colors.white,
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            // alignment: Alignment.bottomCenter,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Form(
-                            key: _key,
-                            child: TextFormField(
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Please Enter The Value";
-                                } else if (int.parse(value) > 10 &&
-                                    int.parse(value) <= 10) {
-                                  return "Plase Enter Below and Above 10";
-                                }
-                              },
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                // filled: true,
-                                hintStyle: TextStyle(color: Colors.grey[800]),
-                                hintText: "Mobile Number",
-                                // fillColor: Colors.white70,
-                              ),
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('If you are Already Logged in?'),
-                              Container(
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Text('Login'),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                Container(
+                  padding: EdgeInsets.only(bottom: 40, left: 15),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Sighup',
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Form(
+                  key: _key,
+                  child: TextFormField(
+                    controller: myController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter Your Number";
+                      } else if (int.parse(value) > 10 &&
+                          int.parse(value) <= 10) {
+                        return "Plase Enter Below and Above 10";
+                      }
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      // filled: true,
+                      hintStyle: TextStyle(color: Colors.grey[800]),
+                      hintText: "Mobile Number",
+                      // fillColor: Colors.white70,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('If you are Already Logged in?'),
+                    Container(
+                      child: TextButton(
+                        onPressed: () {
+                          Get.to(LoginScreen());
+                        },
+                        child: Text('Login'),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: Container(
+                    width: 200,
+                    height: 45,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_key.currentState!.validate()) {
+                          Get.to(HomeScreen());
+                        }
+                      },
+                      child: Text(
+                        'Signup',
+                        style: TextStyle(fontSize: 18),
                       ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 30),
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          // Container(
-                          //   width: 125,
-                          //   height: 40,
-                          //   child: ElevatedButton(
-                          //     onPressed: () {},
-                          //     child: Text(
-                          //       'Login',
-                          //       style: TextStyle(fontSize: 18),
-                          //     ),
-                          //   ),
-                          // ),
-                          SizedBox(width: 40),
-                          Padding(
-                            padding: EdgeInsets.only(right: 20),
-                            child: Container(
-                              width: 125,
-                              height: 40,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Signup',
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ]),
-        ));
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
