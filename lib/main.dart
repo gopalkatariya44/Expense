@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Expenses',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.yellow,
       ),
       home: const SignUpScreen(),
     );
